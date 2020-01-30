@@ -1,4 +1,4 @@
-# markerIndex
+# markerIndex R package
 Compute the marker index described in Perugini and Gallucci (2007)
 
 to install and load the package in R, use the following code
