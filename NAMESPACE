@@ -1,0 +1,5 @@
+# exportPattern("^[[:alpha:]]+")
+export(markerIndex)
+importFrom("stats", "loadings")
+importFrom("psych", "fa", "principal")
+
