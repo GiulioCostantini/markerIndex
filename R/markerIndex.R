@@ -45,6 +45,7 @@ markerIndex <- function(x, rotation = c("orthogonal", "oblique"), Phi,
       } else if(rotation == "oblique" & type.loading == "pattern")
       ld <- as.matrix(x) %*% Phi
   }
+
   ld <- abs(ld)
 
   # create empty marker index object
