@@ -1,7 +1,7 @@
 Package: markerIndex
 Type: Package
 Title: markerIndex: computes the marker index proposed by Perugini and Gallucci (2007)
-Version: 0.1.0
+Version: 0.2.0
 Author: Giulio Costantini
 Maintainer: Giulio Costantini <giulio.costantini@unimib.it>
 Description: The marker index is the complement to 1 of the Euclidean distance between a variable and the vertex of the factor.
@@ -9,3 +9,4 @@ License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
 Depends: psych, dplyr
+Suggests: GPArotation

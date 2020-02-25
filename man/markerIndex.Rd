@@ -43,7 +43,76 @@ Giulio Costantini
 \code{\link{fa}}
 }
 \examples{
-c
+
+#### Example 1 ####
+# reproduce the example in Table 1 in Gallucci & Perugini (2007)
+
+Table1 <- matrix(c(.70, .10, .06,
+                   .70, .35, .35,
+                   .42, .01, .01,
+                   .40, .31, .22,
+                   .60, .10, -.10,
+                   .60, .50, .40,
+                   .70, .70, .01,
+                   .21, .70, .10),
+                 nrow = 8, ncol = 3, byrow = TRUE)
+
+MI <- markerIndex(Table1, rotation = "orthogonal")
+MI
+
+# a nicer way to print the marker indices
+print(MI, digits = 2, cutoff = .2, sort = TRUE, what = "markerIndex")
+
+# one can also print the factor solution, organized by the highest marker index by factor
+print(MI, digits = 2, cutoff = .2, sort = TRUE, what = "full")
+
+# if oblique rotation is specified, but factors are uncorrelated, the same
+# results is obtained
+MI <- markerIndex(Table1, rotation = "oblique", Phi = diag(3),
+                  type.loading = "structure")
+MI
+
+#### Example 2 ####
+# illustrative example with loadings in extreme situations of perfect or zero loading
+Lambda <- matrix(
+  c(
+    # item 1 loads perfectly on the first factor (it should have MI 1 on factor
+    # 1 and 1-sqrt(2) on all other factors)
+    1, 0, 0,
+    # items 2 and 3 are a similar case, but on the remaining two factors
+    0, 1, 0,
+    0, 0, 1,
+    # item 4 does not load on any factor, it should have MI = 0 for all factors
+    0, 0, 0),
+  nrow = 4, ncol = 3, byrow = TRUE)
+
+markerIndex(Lambda, rotation = "orthogonal")
+
+
+#### Example 3 ####
+# This is an example with real data and varimax rotation
+library(psych)
+x <- principal(Harman74.cor$cov, nfactors = 4, rotate="varimax")
+MI <- markerIndex(x)
+print(MI, what = "full", digits = 2, cutoff = .2, sort = TRUE)
+
+# Same with oblique rotation
+x <- principal(Harman74.cor$cov, nfactors = 4, rotate="oblimin")
+MI <- markerIndex(x)
+print(MI, what = "full", digits = 2, cutoff = .2, sort = TRUE)
+
+# Same example, in which the pattern loading matrix and
+# factor correlations are provided manually
+MI <- markerIndex(loadings(x), rotation = "oblique", Phi = x$Phi,
+                  type.loading = "pattern")
+print(MI, what = "full", digits = 2, cutoff = .2, sort = TRUE)
+
+# The same results are obtained if the structure matrix is provided instead
+MI <- markerIndex(x$Structure, rotation = "oblique", Phi = x$Phi,
+                  type.loading = "structure")
+print(MI, what = "full", digits = 2, cutoff = .2, sort = TRUE)
+
+
 }
 \keyword{marker index}
 \keyword{factor analysis}
