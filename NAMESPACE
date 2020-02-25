@@ -1,5 +1,7 @@
 # exportPattern("^[[:alpha:]]+")
-export(markerIndex)
+export(markerIndex, print.markerindex)
 importFrom("stats", "loadings")
 importFrom("psych", "fa", "principal")
+importFrom("dplyr", "select", "arrange", "rename")
+S3method(print, markerindex)
 
