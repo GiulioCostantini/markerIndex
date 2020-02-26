@@ -1,7 +1,10 @@
 # exportPattern("^[[:alpha:]]+")
-export(markerIndex, print.markerindex)
+export(markerIndex, print.markerindex, reliabilityAll, scaleScores)
 importFrom("stats", "loadings")
-importFrom("psych", "fa", "principal")
+importFrom("psych", "fa", "principal", "alpha")
 importFrom("dplyr", "select", "arrange", "rename")
+importFrom("MBESS", "ci.reliability")
+importFrom("stringr", "str_detect")
+importFrom("lavaan", "lavaan")
 S3method(print, markerindex)
 
