@@ -1,6 +1,6 @@
 Package: markerIndex
 Type: Package
-Title: markerIndex: computes the marker index proposed by Perugini and Gallucci (2007)
+Title: markerIndex: computes the marker index proposed by Perugini and Gallucci (2007); includes also a collection of utility functions
 Version: 0.2.0
 Author: Giulio Costantini
 Maintainer: Giulio Costantini <giulio.costantini@unimib.it>
@@ -8,5 +8,5 @@ Description: The marker index is the complement to 1 of the Euclidean distance b
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
-Depends: psych, dplyr, MBESS, stringr, lavaan
-Suggests: GPArotation, psychTools
+Imports: psych, dplyr, MBESS, stringr, lavaan, Hmisc
+Suggests: GPArotation, psychTools, corpcor

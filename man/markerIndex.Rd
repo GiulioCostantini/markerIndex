@@ -43,6 +43,9 @@ Giulio Costantini
 \code{\link{fa}}
 }
 \examples{
+library(psych)
+library(GPArotation)
+library(psychTools)
 
 #### Example 1 ####
 # reproduce the example in Table 1 in Gallucci & Perugini (2007)

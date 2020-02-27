@@ -47,7 +47,11 @@ data(bfi)
 # bfi.keys include information on reverse-scoring. In particular, items with the string
 # "-" are reverse-scored. We can exploit this information to reverse-score all items
 bfi2 <- bfi
-names(bfi2)[1:25] <- unlist(bfi.keys)
+names(bfi2)[1:25] <- c("-A1", "A2",  "A3",  "A4",  "A5",
+                       "C1",  "C2",  "C3",  "-C4", "-C5",
+                       "-E1", "-E2", "E3",  "E4",  "E5" ,
+                       "N1", "N2", "N3", "N4", "N5",
+                       "O1",  "-O2", "O3",  "O4", "-O5")
 
 # scale scores can be computed with function scaleScores
 BFI <- scaleScores(bfi2, pattern = list(
