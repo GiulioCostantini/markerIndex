@@ -92,10 +92,22 @@ markerIndex2 <- function(x, data, rotation = c("orthogonal", "oblique"), Phi,
     fc <- fa.congruence(pattern, ort$loadings, structure = F, digits = 10)
     
     # compute the distance between oblique factors and items in the orthogonal space
-    ds <- dist(rbind(abs(fc), abs(ort$loadings)), method = "euclidean")
-    ds <- as.matrix(ds)
-    ds <- ds[-c(1:nf),1:nf]
+    ds1 <- dist(rbind(fc, ort$loadings), method = "euclidean")
+    ds1 <- as.matrix(ds1)
+    ds1 <- ds1[-c(1:nf),1:nf]
+
+    # compute the distance between the other pole of oblique factors 
+    # and items in the orthogonal space,
+    ds2 <- dist(rbind(-1*fc, ort$loadings), method = "euclidean")
+    ds2 <- as.matrix(ds2)
+    ds2 <- ds2[-c(1:nf),1:nf]
     
+    # keep the minimum of the two distances
+    dsA <- array(dim = c(dim(ds1), 2))
+    dsA[,,1] <- ds1
+    dsA[,,2] <- ds2
+    
+    ds <- apply(dsA, 1:2, min)    
     # marker index is just the complement to one of this distance
     mi <- 1-ds
   }    
