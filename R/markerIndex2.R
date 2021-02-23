@@ -12,6 +12,8 @@ markerIndex2 <- function(x, data)
   ld <- x$Structure
   class(ld) <- "matrix"
   pattern <- loadings(x)
+  class(pattern) <- "matrix"
+  
   
   # calculate markerIndex - oblique rotation
   nf <- ncol(ld)    
