@@ -27,7 +27,7 @@ logical. If TRUE, a more complete output is returned, including not only the for
 }
 }
 \details{
-P-values for partial correlations are computed using function \code{\link[psych]{corr.p}}
+P-values for partial correlations are computed using function \code{\link[psych]{corr.test}}
 }
 \value{
 if \code{full} is false, a formatted partial correlation matrix is returned. Otherwise, a list including the formatted partial correlation matrix, the original partial correlaitons and the p-values.
@@ -46,7 +46,7 @@ This funciton was adapted from here: https://github.com/kyuni22/ksmv/blob/master
 
 \seealso{
 \code{\link[Hmisc]{rcorr}}
-\code{\link[psych]{corr.p}}
+\code{\link[psych]{corr.test}}
 \code{\link{corstarsl}}
 }
 

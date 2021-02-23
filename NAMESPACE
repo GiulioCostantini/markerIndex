@@ -7,5 +7,6 @@ importFrom("MBESS", "ci.reliability")
 importFrom("stringr", "str_detect", "str_replace")
 importFrom("lavaan", "lavaan")
 importFrom("Hmisc", "rcorr")
+importFrom("stats", "cor", "dist")
 S3method(print, markerindex)
 

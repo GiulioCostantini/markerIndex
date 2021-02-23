@@ -18,7 +18,7 @@ markerIndex2 <- function(x, data)
   
   # calculate the corresponding unrotated solution, in which we can embed 
   # oblique factors
-  ort <- principal(data, nfactor = nf)
+  ort <- principal(data, nfactors = nf)
   
   # project oblique factors into the same orthogonal space
   fc <- cor(x$scores, ort$scores)
